@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurevenus | Receitas de Alto Nível</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Courgette&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+    <header class="navbar">
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <div class="jv-container">
+                    <span class="jv-text">JV</span>
+                    <span class="bee">🐝</span>
+                </div>
+                <span class="brand-text">
+                    <span class="ju">Ju</span><span class="revenus">revenus</span>
+                </span>
+            </div>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    
+                    <li class="nav-item has-mega">
+                        <a href="#receitas" class="nav-link"><i class="fas fa-book-open-reader"></i> Receitas <i class="fas fa-chevron-down caret"></i></a>
+                        <!-- MEGA MENU DESKTOP -->
+                        <div class="mega-menu">
+                            <div class="container mega-grid">
+                                <div class="mega-col">
+                                    <h3>Nível de Habilidade</h3>
+                                    <ul>
+                                        <li><a href="#iniciante"><i class="fas fa-seedling"></i> Iniciantes</a></li>
+                                        <li><a href="#intermediario"><i class="fas fa-blender"></i> Intermediários</a></li>
+                                        <li><a href="#avancado"><i class="fas fa-fire"></i> Avançados</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col">
+                                    <h3>Tipos de Receita</h3>
+                                    <ul>
+                                        <li><a href="#">Entradas</a></li>
+                                        <li><a href="#">Pratos Principais</a></li>
+                                        <li><a href="#">Acompanhamentos</a></li>
+                                        <li><a href="#">Sobremesas</a></li>
+                                        <li><a href="#">Lanches</a></li>
+                                        <li><a href="#">Bebidas</a></li>
+                                        <li><a href="#"><i class="fas fa-film"></i> Filmes</a></li>
+                                        <li><a href="#"><i class="fas fa-wand-magic-sparkles"></i> Criações JV</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col">
+                                    <h3>Filtros Específicos</h3>
+                                    <div class="filter-grid">
+                                        <a href="#">Tempo</a>
+                                        <a href="#">Custo</a>
+                                        <a href="#">Dieta / Estilo</a>
+                                        <a href="#">Tipo de Cozinha</a>
+                                        <a href="#">Ocasião</a>
+                                        <a href="#">Método</a>
+                                        <a href="#">Ingrediente</a>
+                                    </div>
+                                </div>
+                                <div class="mega-col mega-featured">
+                                    <div class="featured-card">
+                                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Receita Destaque">
+                                        <div class="badge">Destaque</div>
+                                        <p>Bowl de Quinoa Vibrante</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MOBILE ACCORDION (Hidden on Desktop) -->
+                        <div class="mobile-mega" id="mobileMega">
+                            <div class="acc-item">
+                                <div class="acc-header">Níveis <i class="fas fa-plus"></i></div>
+                                <div class="acc-content">
+                                    <a href="#">Iniciantes</a>
+                                    <a href="#">Intermediários</a>
+                                    <a href="#">Avançados</a>
+                                </div>
+                            </div>
+                            <div class="acc-item">
+                                <div class="acc-header">Tipos <i class="fas fa-plus"></i></div>
+                                <div class="acc-content">
+                                    <a href="#">Entradas</a>
+                                    <a href="#">Pratos Principais</a>
+                                    <a href="#">Sobremesas</a>
+                                    <a href="#">Lanches</a>
+                                    <a href="#">Bebidas</a>
+                                    <a href="#">Filmes</a>
+                                    <a href="#">Criações JV</a>
+                                </div>
+                            </div>
+                            <div class="acc-item">
+                                <div class="acc-header">Filtros <i class="fas fa-plus"></i></div>
+                                <div class="acc-content">
+                                    <a href="#">Tempo</a>
+                                    <a href="#">Custo</a>
+                                    <a href="#">Dieta</a>
+                                    <a href="#">Ingrediente</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#dicas" class="nav-link"><i class="fas fa-lightbulb-on"></i> Dicas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contato" class="nav-link"><i class="fas fa-address-book"></i> Contato</a>
+                    </li>
+                </ul>
+                
+            </nav>
+
+            <div class="nav-actions">
+                <button id="themeToggle" class="btn-icon" aria-label="Mudar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container grid-hero">
+                <div class="hero-text animate-reveal-left">
+                    <span class="badge-premium"><i class="fas fa-star"></i> 100% Exclusivo</span>
+                    <h1>Cozinhe como um <span id="dynamic-text" class="rotating-text">Mestre</span> da Gastronomia.</h1>
+                    <p>Descubra o segredo dos grandes chefs e transforme ingredientes simples em experiências inesquecíveis na sua cozinha.</p>
+                    <div class="hero-btns">
+                        <a href="#receitas" class="btn btn-primary">Explorar Receitas</a>
+                        <a href="#contato" class="btn btn-secondary">Social Media</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <strong>500+</strong>
+                            <span>Receitas</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>15k</strong>
+                            <span>Seguidores</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-img animate-reveal-right">
+                    <div class="img-wrapper">
+                        <img src="assets/hero-food.png" alt="Prato de Alta Gastronomia">
+                        
+                        <!-- Elementos Flutuantes Dinâmicos (Ferramentas da Chef) -->
+                        <div class="floating-item item-1"><i class="fas fa-utensil-spoon"></i></div>
+                        <div class="floating-item item-2"><i class="fas fa-kitchen-set"></i></div>
+                        <div class="floating-item item-3"><i class="fas fa-fire-burner"></i></div>
+
+                        <div class="glass-card">
+                            <div class="glass-icon"><i class="fas fa-trophy"></i></div>
+                            <div class="glass-info">
+                                <strong>Receita do Mês</strong>
+                                <span>Salmão ao Molho JV</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-down">
+                <span>Role para ver mais</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <section id="receitas" class="section-levels">
+            <div class="container">
+                <div class="section-header">
+                    <span class="badge">Sua Jornada</span>
+                    <h2>Explore por <span>Nível</span></h2>
+                    <p>Suba degrau por degrau na sua evolução gastronômica.</p>
+                </div>
+
+                <!-- NÍVEL 1: SELETOR DE HABILIDADE (TABS) -->
+                <div class="skills-tabs">
+                    <button class="tab-btn active" data-level="iniciante">
+                        <i class="fas fa-seedling"></i>
+                        Iniciante
+                    </button>
+                    <button class="tab-btn" data-level="intermediario">
+                        <i class="fas fa-blender"></i>
+                        Intermediário
+                    </button>
+                    <button class="tab-btn" data-level="avancado">
+                        <i class="fas fa-fire"></i>
+                        Avançado
+                    </button>
+                </div>
+
+                <!-- NÍVEL 2: TIPOS E FILTROS -->
+                <div id="recipe-dashboard" class="recipe-dashboard">
+                    <div class="dashboard-controls">
+                        <div class="type-selector">
+                            <span class="control-label">Tipo de Receita:</span>
+                            <div class="filter-group">
+                                <button class="filter-pill active" data-type="all">Todos</button>
+                                <button class="filter-pill" data-type="filmes">🎬 Filmes</button>
+                                <button class="filter-pill" data-type="jv">🐝 Criações JV</button>
+                                <button class="filter-pill" data-type="salgados">🥨 Salgados</button>
+                                <button class="filter-pill" data-type="doces">🍰 Doces</button>
+                            </div>
+                        </div>
+                        
+                        <div class="quick-filters">
+                            <span class="control-label">Filtros Rápidos:</span>
+                            <div class="filter-group">
+                                <button class="filter-icon" title="Rápido (< 20min)"><i class="fas fa-clock"></i></button>
+                                <button class="filter-icon" title="Econômico"><i class="fas fa-tag"></i></button>
+                                <button class="filter-icon" title="Vegano"><i class="fas fa-leaf"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recipe-grid" id="recipe-list">
+                        <!-- RECEITAS INICIANTE -->
+                        <div class="recipe-card" data-level="iniciante" data-type="jv">
+                            <div class="recipe-img">
+                                <img src="assets/recipe_omelete.png" alt="Omelete de Ervas">
+                                <div class="recipe-tag">15 min</div>
+                            </div>
+                            <div class="recipe-info">
+                                <span class="recipe-cat">Criações JV</span>
+                                <h3>Omelete de Ervas Finas</h3>
+                                <p>Técnica clássica com o toque sutil da Jurevenus.</p>
+                                <a href="#" class="btn-text">Começar <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="recipe-card" data-level="iniciante" data-type="salgados">
+                            <div class="recipe-img">
+                                <img src="assets/recipe_pasta.png" alt="Spaghetti Limone">
+                                <div class="recipe-tag">20 min</div>
+                            </div>
+                            <div class="recipe-info">
+                                <span class="recipe-cat">Salgados</span>
+                                <h3>Spaghetti Al Limone</h3>
+                                <p>Elegância e frescor garantidos para iniciantes.</p>
+                                <a href="#" class="btn-text">Começar <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="recipe-card" data-level="iniciante" data-type="salgados">
+                            <div class="recipe-img">
+                                <img src="assets/recipe_bruschetta.png" alt="Bruschetta">
+                                <div class="recipe-tag">10 min</div>
+                            </div>
+                            <div class="recipe-info">
+                                <span class="recipe-cat">Salgados</span>
+                                <h3>Bruschettas Clássicas</h3>
+                                <p>Simplicidade gourmet para abrir suas refeições.</p>
+                                <a href="#" class="btn-text">Começar <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contato">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <div class="logo">
+                    <div class="jv-container">
+                        <span class="jv-text">JV</span>
+                        <span class="bee">🐝</span>
+                    </div>
+                    <span class="brand-text">
+                        <span class="ju">Ju</span><span class="revenus">revenus</span>
+                    </span>
+                </div>
+                <p>Inspirando cozinheiros de todos os níveis.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Siga-nos</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                    <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Jurevenus - Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
