@@ -11,6 +11,11 @@
     --shadow: 0 15px 35px rgba(62, 39, 35, 0.05); 
     --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     --font-hand: 'Courgette', cursive;
+
+    /* Variáveis de Tema por Categoria */
+    --theme-salgados: #D35400; /* Terracota */
+    --theme-cine: #C0392B;    /* Vermelho Cinema */
+    --theme-pastry: #AD1457;  /* Rosa Framboesa */
 }
 
 .dark-theme {
@@ -24,6 +29,12 @@
     --card-bg: #2D2321;
     --nav-bg: rgba(33, 25, 23, 0.98);
     --shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+
+    /* Overrides do Modo Escuro para as Seções */
+    --pastry-bg: #2D1B22; 
+    --pastry-accent: #FFB7B7;
+    --cine-bg: #2D1111;
+    --salgados-bg: #2D201A;
 }
 
 /* --- RESET & BASE --- */
@@ -35,6 +46,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 140px; /* Aumentado para garantir folga total */
 }
 
 body {
@@ -45,6 +57,10 @@ body {
     line-height: 1.7;
     transition: var(--transition);
     overflow-x: hidden;
+}
+
+section {
+    scroll-margin-top: 100px; /* Evita que a navbar fixa cubra os títulos */
 }
 
 h1, h2, h3, .brand {
@@ -603,15 +619,15 @@ h1, h2, h3, .brand {
 
 /* --- RECIPE DASHBOARD HIERARCHY --- */
 .section-levels {
-    padding: 100px 0;
-    background-color: var(--bg-secondary);
+    padding: 60px 0;
+    background-color: var(--salgados-bg, var(--bg-secondary));
 }
 
 .skills-tabs {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 50px;
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
 .tab-btn {
@@ -647,8 +663,8 @@ h1, h2, h3, .brand {
 
 .recipe-dashboard {
     background: var(--white);
-    padding: 40px;
-    border-radius: 30px;
+    padding: 30px;
+    border-radius: 25px;
     box-shadow: var(--shadow);
 }
 
@@ -811,7 +827,7 @@ h1, h2, h3, .brand {
 }
 
 .section-confeitaria {
-    padding: 120px 0;
+    padding: 60px 0;
     background-color: var(--pastry-bg);
     position: relative;
     overflow: hidden;
@@ -869,8 +885,8 @@ h1, h2, h3, .brand {
 .confeitaria-grid {
     display: grid;
     grid-template-columns: 1.8fr 1fr;
-    gap: 50px;
-    margin-top: 60px;
+    gap: 30px;
+    margin-top: 30px;
     position: relative;
     z-index: 1;
 }
@@ -1155,6 +1171,21 @@ h1, h2, h3, .brand {
     color: white;
 }
 
+#hub-confeitaria .recipe-info h3 {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+#hub-confeitaria .recipe-img::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.3));
+    pointer-events: none;
+}
+
 .pastry-featured-card-mini {
     position: relative;
     height: 150px;
@@ -1359,7 +1390,7 @@ h1, h2, h3, .brand {
 
 /* MASTER HUB STYLES */
 .master-hub-section {
-    padding: 60px 0; /* Reduced padding for cleaner look */
+    padding: 80px 0 40px 0; /* Aumentado o padding-top */
     background: var(--bg-secondary);
     transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1407,6 +1438,21 @@ h1, h2, h3, .brand {
     color: white;
 }
 
+#hub-filmes .recipe-info h3 {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Sutil sombra para clareza */
+}
+
+#hub-filmes .recipe-img::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.4));
+    pointer-events: none;
+}
+
 .refine-cine {
     border-color: #6b1d1d;
     color: #6b1d1d;
@@ -1448,8 +1494,85 @@ h1, h2, h3, .brand {
     font-size: 0.9rem;
 }
 
-/* Hub Background Colors */
-.hub-bg-receitas { background-color: var(--bg-secondary); }
-.hub-bg-filmes { background-color: #faf3f3; } /* Light Vinho hint */
-.hub-bg-confeitaria { background-color: #fff9f9; }
+/* Hub Background Colors e Temas Diferenciados */
+.hub-bg-receitas { background-color: var(--salgados-bg, #fdf2e9); }
+.hub-bg-filmes { background-color: var(--cine-bg, #faf3f3); } 
+.hub-bg-confeitaria { background-color: var(--pastry-bg, #fff9f9); }
+
+/* Aplicação dos Temas nas Cores principais */
+#hub-receitas .tab-btn.active, #hub-receitas .filter-pill.active { background: var(--theme-salgados); border-color: var(--theme-salgados); }
+#hub-receitas .btn-refine { border-color: var(--theme-salgados); color: var(--theme-salgados); }
+#hub-receitas .btn-refine.active { background: var(--theme-salgados); color: white; }
+
+#hub-filmes .tab-btn-cine.active, #hub-filmes .filter-pill-cine.active { background: var(--theme-cine); border-color: var(--theme-cine); }
+#hub-filmes .btn-refine { border-color: var(--theme-cine); color: var(--theme-cine); }
+#hub-filmes .btn-refine.active { background: var(--theme-cine); color: white; }
+
+#hub-confeitaria .tab-btn-pastry.active, #hub-confeitaria .filter-pill-pastry.active { background: var(--theme-pastry); border-color: var(--theme-pastry); }
+#hub-confeitaria .btn-refine { border-color: var(--theme-pastry); color: var(--theme-pastry); }
+#hub-confeitaria .btn-refine.active { background: var(--theme-pastry); color: white; }
+
+/* --- SEÇÃO SOBRE ESTILOS --- */
+.section-about {
+    padding: 60px 0;
+    background: var(--bg-primary);
+}
+
+.grid-about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-img img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+}
+
+.about-text h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+}
+
+.about-features {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.feat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* Responsividade Mobile Extra */
+@media (max-width: 768px) {
+    .grid-about {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    .about-features {
+        justify-content: center;
+    }
+    .about-text h2 {
+        font-size: 2.2rem;
+    }
+    .navbar {
+        height: 70px;
+    }
+    .hero h1 {
+        font-size: 3rem;
+    }
+}
 

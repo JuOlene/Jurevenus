@@ -114,171 +114,136 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- BANCO DE DADOS DE RECEITAS (RECIPES_DATABASE) ---
     const RECIPES_DATABASE = [
-        // SALGADOS (Receitas)
+        // --- SALGADOS & MASSAS (Receitas) ---
         {
             id: 'pasta-1', section: 'receitas', level: 'iniciante', type: 'massas', filter: 'rapido',
-            title: 'Spaghetti Al Limone', desc: 'Refrescante e pronto em minutos.', tag: '15 min', yield: '2 pessoas',
+            title: 'Pasta Al Limone', desc: 'Refrescante e pronto em minutos.', tag: '15 min', yield: '2 pessoas',
             img: 'assets/recipe_pasta.png',
             ingredients: ['200g Spaghetti', 'Suco de 2 limões sicilianos', '50g Parmesão', 'Azeite extra virgem', 'Sal e Pimenta'],
             method: ['Cozinhe a massa em água salgada.', 'Em uma frigideira, misture o azeite e o suco de limão.', 'Transfira a massa para a frigideira com um pouco da água do cozimento.', 'Finalize com parmesão e pimenta.']
         },
         {
-            id: 'fish-1', section: 'receitas', level: 'iniciante', type: 'peixes', filter: 'saudavel',
-            title: 'Salmão no Vapor', desc: 'Leve e nutritivo.', tag: '20 min', yield: '1 pessoa',
-            img: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['1 filé de Salmão', 'Legumes variados', 'Limão', 'Ervas frescas'],
-            method: ['Tempere o peixe com sal e ervas.', 'Cozinhe no vapor por 12-15 minutos.', 'Acompanhe com os legumes cozidos.']
+            id: 'panqueca-1', section: 'receitas', level: 'iniciante', type: 'massas', filter: 'economico',
+            title: 'Panqueca Simples', desc: 'Massa leve e versátil para qualquer recheio.', tag: '20 min', yield: '4 pessoas',
+            img: 'https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?auto=format&fit=crop&w=800&q=60',
+            ingredients: ['1 xícara de farinha', '1 ovo', '1 xícara de leite', '1 pitada de sal'],
+            method: ['Misture todos os ingredientes até ficar homogêneo.', 'Despeje pequenas porções na frigideira untada.', 'Doure dos dois lados.', 'Recheie a gosto (carne, queijo ou doce).']
         },
         {
-            id: 'meat-1', section: 'receitas', level: 'intermediario', type: 'carnes', filter: 'economico',
-            title: 'Costelinha BBQ JV', desc: 'Equilíbrio agridoce perfeito.', tag: '60 min', yield: '4 pessoas',
-            img: 'https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['1kg Costelinha Suína', 'Molho BBQ JV', 'Mel', 'Alho e Páprica'],
-            method: ['Tempere a costelinha e asse coberta por 40 min.', 'Pincele o molho e asse por mais 20 min descoberta.']
+            id: 'molho-branco-1', section: 'receitas', level: 'intermediario', type: 'massas', filter: 'rapido',
+            title: 'Macarrão ao Molho Branco', desc: 'Clássico molho béchamel cremoso.', tag: '25 min', yield: '2 pessoas',
+            img: 'https://images.unsplash.com/photo-1645112481338-3561ec9dbada?auto=format&fit=crop&w=800&q=60',
+            ingredients: ['250g de macarrão', '2 colheres de manteiga', '2 colheres de farinha', '500ml de leite', 'Sal, pimenta e noz-moscada', 'Queijo ralado'],
+            method: ['Cozinhe o macarrão al dente.', 'Prepare o molho branco derretendo manteiga e misturando a farinha.', 'Adicione o leite aos poucos mexendo sempre.', 'Tempere e deixe engrossar.', 'Misture com o macarrão e finalize com queijo.']
         },
         {
-            id: 'meat-2', section: 'receitas', level: 'avancado', type: 'carnes', filter: '',
-            title: 'Beef Wellington', desc: 'A técnica definitiva da massa folhada.', tag: '120 min', yield: '6 pessoas',
-            img: 'https://images.unsplash.com/photo-1514516348920-f5d90e0c90c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Filet Mignon Inteiro', 'Massa Folhada', 'Duxelles de Cogumelos', 'Presunto de Parma', 'Gemas de ovo'],
-            method: ['Sele a carne rapidamente.', 'Envolva no presunto e duxelles.', 'Cubra com a massa folhada e pincele ovos.', 'Asse a 200°C até o ponto desejado.']
+            id: 'frango-forno-1', section: 'receitas', level: 'intermediario', type: 'carnes', filter: 'saudavel',
+            title: 'Frango ao Forno com Batatas', desc: 'Praticidade e sabor em um só prato.', tag: '60 min', yield: '4 pessoas',
+            img: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=800&q=60',
+            ingredients: ['1kg de frango (coxa e sobrecoxa)', '4 batatas médias', 'Alho, sal e pimenta', 'Azeite de oliva'],
+            method: ['Tempere o frango com alho, sal e pimenta.', 'Corte as batatas em cubos e tempere também.', 'Disponha em um refratário com azeite.', 'Leve ao forno a 200°C por cerca de 1 hora até dourar.']
         },
         {
-            id: 'veggie-1', section: 'receitas', level: 'intermediario', type: 'vegetariano', filter: 'saudavel',
-            title: 'Risoto de Cogumelos', desc: 'Cremosidade e sabor terroso.', tag: '40 min', yield: '2 pessoas',
-            img: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Arroz Arbóreo', 'Mix de Cogumelos', 'Vinho Branco', 'Caldo de Legumes', 'Manteiga e Parmesão'],
-            method: ['Refogue os cogumelos.', 'Adicione o arroz e o vinho.', 'Vá colocando o caldo aos poucos, mexendo sempre.', 'Finalize com manteiga e queijo.']
+            id: 'risoto-cogumelos-1', section: 'receitas', level: 'avancado', type: 'vegetariano', filter: 'saudavel',
+            title: 'Risoto de Cogumelos', desc: 'A sofisticação do arroz arbóreo com mix de funghi.', tag: '40 min', yield: '2 pessoas',
+            img: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=800&q=60',
+            ingredients: ['1 xícara de arroz arbóreo', '200g de cogumelos frescos', '1/2 cebola picada', '1/2 xícara de vinho branco', '1 litro de caldo de legumes', 'Manteiga e parmesão'],
+            method: ['Refogue a cebola e os cogumelos na manteiga.', 'Adicione o arroz e o vinho, mexendo até evaporar.', 'Acrescente o caldo quente concha por concha, mexendo sempre.', 'Quando estiver cremoso, finalize com manteiga fria e queijo.']
         },
         {
-            id: 'entrada-1', section: 'receitas', level: 'iniciante', type: 'massas', filter: 'rapido',
-            title: 'Bruschetta Pomodoro', desc: 'O clássico italiano.', tag: '10 min', yield: '4 pessoas',
-            img: 'assets/recipe_bruschetta.png',
-            ingredients: ['Pão Italiano', 'Tomates maduros', 'Manjericão', 'Alho', 'Azeite'],
-            method: ['Toste fatias de pão esfregadas com alho.', 'Misture tomates picados com manjericão e azeite.', 'Sirva sobre o pão.']
-        },
-        {
-            id: 'meat-3', section: 'receitas', level: 'avancado', type: 'carnes', filter: 'economico',
-            title: 'Picanha Invertida', desc: 'Inovação e suculência.', tag: '80 min', yield: '5 pessoas',
-            img: 'https://images.unsplash.com/photo-1558030006-45ef67561494?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Picanha Inteira', 'Queijo Coalho', 'Bacon picado', 'Temperos Secos'],
-            method: ['Abra a picanha por dentro sem furar a ponta.', 'Inverta a peça de modo que a gordura fique para dentro.', 'Recheie com o queijo e bacon.', 'Asse até dourar.']
-        },
-        {
-            id: 'peixe-2', section: 'receitas', level: 'avancado', type: 'peixes', filter: 'saudavel',
-            title: 'Polvo Grelhado', desc: 'Textura perfeita.', tag: '90 min', yield: '2 pessoas',
-            img: 'https://images.unsplash.com/photo-1548946522-4a313e8972a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Polvo Médio', 'Batatas Bolinha', 'Páprica Defumada', 'Azeite de Oliva'],
-            method: ['Cozinhe o polvo na pressão por 35 min.', 'Grelhe o polvo e as batatas com azeite e páprica.']
+            id: 'carne-assada-1', section: 'receitas', level: 'avancado', type: 'carnes', filter: '',
+            title: 'Carne Assada com Molho', desc: 'Carne macia com molho de vinho encorpado.', tag: '90 min', yield: '6 pessoas',
+            img: 'https://images.unsplash.com/photo-1558030006-45ef67561494?auto=format&fit=crop&w=800&q=60',
+            ingredients: ['1kg de carne (Maminha ou Alcatra)', 'Alho, sal e pimenta', '1 cebola grande', '1 xícara de vinho tinto', '1 colher de farinha'],
+            method: ['Tempere e sele a carne em todos os lados na panela de pressão ou forno.', 'Leve ao forno por 1 hora coberta com papel alumínio.', 'Prepare o molho com o fundo da carne, cebola, vinho e um toque de farinha.', 'Sirva a carne fatiada com o molho por cima.']
         },
 
-        // DOCES (Ateliê)
+        // --- DOCES (Ateliê) ---
         {
-            id: 'doce-1', section: 'confeitaria', level: 'iniciante', type: 'sobremesas', filter: 'rapido',
-            title: 'Parfait de Frutas', desc: 'Camadas de frescor.', tag: '10 min', yield: '2 pessoas',
-            img: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Iogurte Grego', 'Granola', 'Frutas Vermelhas', 'Mel'],
-            method: ['Intercale camadas de iogurte, frutas e granola em uma taça.', 'Finalize com mel fresco.']
+            id: 'doce-brigadeiro', section: 'confeitaria', level: 'iniciante', type: 'sobremesas', filter: 'rapido',
+            title: 'Brigadeiro Tradicional', desc: 'O queridinho do Brasil com toque gourmet.', tag: '15 min', yield: '12 unidades',
+            img: 'https://images.unsplash.com/photo-1541920483524-9984d469c550?auto=format&fit=crop&w=800&q=60',
+            ingredients: ['1 lata de leite condensado', '1 colher de manteiga', '3 colheres de chocolate em pó', 'Granulado de chocolate belga'],
+            method: ['Coloque leite condensado, manteiga e chocolate na panela.', 'Cozinhe em fogo médio, mexendo sempre sem parar.', 'Quando a massa desgrudar do fundo, desligue o fogo.', 'Deixe esfriar em um prato, enrole e passe no granulado.']
         },
         {
-            id: 'doce-2', section: 'confeitaria', level: 'iniciante', type: 'bolos', filter: 'economico',
-            title: 'Bolo de Cenoura', desc: 'Irresistível e caseiro.', tag: '45 min', yield: '10 pessoas',
-            img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['3 Cenouras', '3 Ovos', '2 Xícaras de Farinha', '1 Xícara de Óleo', 'Calda de Chocolate'],
-            method: ['Bata cenoura, ovos e óleo.', 'Misture os secos.', 'Asse por 40 min em forno médio.', 'Cubra com a calda.']
+            id: 'banana-caramel-1', section: 'confeitaria', level: 'iniciante', type: 'sobremesas', filter: 'economico',
+            title: 'Banana Caramelizada', desc: 'Sobremesa clássica que derrete na boca.', tag: '15 min', yield: '2 pessoas',
+            img: 'https://images.unsplash.com/photo-1514849302-984523450cf4?auto=format&fit=crop&w=800&q=60',
+            ingredients: ['3 bananas maduras', '1/2 xícara de açúcar', '1/4 xícara de água'],
+            method: ['Derreta o açúcar em fogo baixo até formar um caramelo dourado.', 'Adicione a água com cuidado para não espirrar.', 'Coloque as bananas cortadas ao meio ou em rodelas.', 'Cozinhe até ficarem macias e cobertas pelo caramelo.']
         },
         {
-            id: 'doce-3', section: 'confeitaria', level: 'intermediario', type: 'sobremesas', filter: 'rapido',
-            title: 'Lava Cake Avelã', desc: 'O clássico centro derretido.', tag: '25 min', yield: '2 pessoas',
-            img: 'https://images.unsplash.com/photo-1541920483524-9984d469c550?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['200g Chocolate Amargo', 'Manteiga', '2 Ovos', 'Essência de Avelã'],
-            method: ['Derreta chocolate e manteiga.', 'Misture ovos e essência.', 'Asse em forminhas por apenas 10-12 min.']
+            id: 'doce-2', section: 'confeitaria', level: 'intermediario', type: 'bolos', filter: 'economico',
+            title: 'Bolo de Cenoura', desc: 'Massa fofinha com aquela cobertura de chocolate crocante.', tag: '50 min', yield: '10 pessoas',
+            img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=60',
+            ingredients: ['3 cenouras médias', '3 ovos', '1 xícara de óleo', '2 xícaras de açúcar', '2 xícaras de farinha', '1 colher de fermento', 'Cobertura: Manteiga, Chocolate e Leite'],
+            method: ['Bata cenoura, ovos e óleo no liquidificador.', 'Em uma tigela, misture com açúcar, farinha e fermento.', 'Asse em forno preaquecido a 180°C por 40 minutos.', 'Prepare a cobertura de chocolate e despeje ainda quente sobre o bolo.']
         },
         {
-            id: 'doce-4', section: 'confeitaria', level: 'avancado', type: 'macarons', filter: '',
-            title: 'Macarons Lavanda', desc: 'O desafio supremo.', tag: '180 min', yield: '20 unidades',
-            img: 'https://images.unsplash.com/photo-1569864358642-9d161970296d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Farinha de Amêndoas', 'Açúcar de Confeiteiro', 'Claras de Ovos', 'Corante Lavanda'],
-            method: ['Faça o macaronage até o ponto de fita.', 'Pingue e deixe secar por 1 hora.', 'Asse por 15 min.', 'Recheie após esfriar.']
-        },
-        {
-            id: 'doce-5', section: 'confeitaria', level: 'avancado', type: 'chocolataria', filter: '',
-            title: 'Bombom de Ganache', desc: 'Brilho e técnica.', tag: '120 min', yield: '15 bombons',
-            img: 'https://images.unsplash.com/photo-1548907040-4baa42d10919?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Chocolate Nobre', 'Creme de Leite', 'Invertido', 'Forma de Policarbonato'],
-            method: ['Tempere o chocolate.', 'Faça as casquinhas.', 'Recheie com ganache fria.', 'Feche e desenforme após cristalizar.']
-        },
-        {
-            id: 'doce-6', section: 'confeitaria', level: 'intermediario', type: 'bolos', filter: 'economico',
-            title: 'Cheesecake de Frutas', desc: 'Textura cremosa.', tag: '60 min', yield: '8 pessoas',
-            img: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Cream Cheese', 'Biscoito Maizena', 'Manteiga', 'Geleia de Morango'],
-            method: ['Faça a base de biscoito.', 'Bata o creme e asse em banho-maria por 50 min.', 'Gele e finalize com cobertura.']
-        },
-        {
-            id: 'doce-7', section: 'confeitaria', level: 'iniciante', type: 'chocolataria', filter: 'rapido',
-            title: 'Trufa de Limão', desc: 'Ácido e doce.', tag: '30 min', yield: '12 unidades',
-            img: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Chocolate Branco', 'Creme de Leite', 'Suco de Limão', 'Raspas'],
-            method: ['Derreta o chocolate com creme.', 'Misture o limão.', 'Modele após firmar na geladeira.']
-        },
-        {
-            id: 'doce-8', section: 'confeitaria', level: 'avancado', type: 'sobremesas', filter: 'sem-gluten',
-            title: 'Pavlova Imperial', desc: 'Nuvem de merengue.', tag: '150 min', yield: '6 pessoas',
-            img: 'https://images.unsplash.com/photo-1511081138522-86197a8466a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Brancas de Ovos', 'Açúcar Fino', 'Amido de Milho', 'Creme de Leite fresco'],
-            method: ['Bata o merengue bem firme.', 'Asse em temperatura baixíssima por 2 horas.', 'Cubra com chantilly e frutas.'],
-            movie: ''
+            id: 'torta-limao-1', section: 'confeitaria', level: 'avancado', type: 'sobremesas', filter: 'sem-gluten',
+            title: 'Torta de Limão com Merengue', desc: 'O equilíbrio perfeito entre o ácido e o doce.', tag: '60 min', yield: '8 pessoas',
+            img: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=800&q=60',
+            ingredients: ['Base: 200g biscoito maizena e 100g manteiga', 'Recheio: 1 lata leite condensado e suco de 3 limões', 'Merengue: 3 claras e 1/2 xícara de açúcar'],
+            method: ['Triture o biscoito e misture com manteiga; forre a forma e asse 10 min.', 'Misture o leite condensado com o limão e coloque sobre a base fria.', 'Bata as claras em neve com açúcar até o ponto de merengue firme.', 'Cubra a torta e leve ao forno rapidamente ou use um maçarico para dourar.']
         },
 
-        // CINE GOURMET (Filmes)
+        // --- CINE GOURMET (Filmes & Séries) ---
         {
-            id: 'cine-1', section: 'filmes', level: 'intermediario', type: 'animacoes', filter: 'replica',
-            title: 'Ratatouille do Remy', desc: 'A versão clássica do Confit Byaldi.', tag: '90 min', yield: '4 pessoas',
-            img: 'https://images.unsplash.com/photo-1572453800999-e8d2d15fb3c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Berinjela', 'Abobrinha', 'Tomate Roma', 'Pimentão Amarelo', 'Ervas de Provence'],
-            method: ['Fatie os legumes finamente e uniformemente.', 'Faça uma base de molho de pimentão e tomate.', 'Disponha os legumes em espiral.', 'Asse lentamente coberto com papel manteiga.'],
-            movie: 'Ratatouille'
+            id: 'cine-ratatouille', section: 'filmes', level: 'intermediario', type: 'animacoes', filter: 'replica',
+            title: 'Ratatouille (Remy)', desc: 'A famosa receita de Confit Byaldi que encantou o crítico Ego.', tag: '90 min', yield: '4 pessoas',
+            img: 'assets/ratatouille.png',
+            ingredients: ['1 abobrinha', '1 berinjela', '2 tomates romas', '1 pimentão amarelo', 'Molho de tomate caseiro', 'Alho, azeite, sal e tomilho'],
+            method: ['Corte os legumes em fatias bem finas e uniformes.', 'Espalhe o molho de tomate no fundo de uma assadeira redonda.', 'Organize os legumes intercalando as cores em formato de espiral.', 'Tempere com sal, muito azeite e ervas frescas.', 'Cubra com papel alumínio e asse por 40 min a 180°C; depois gratine sem papel.']
         },
         {
-            id: 'cine-2', section: 'filmes', level: 'iniciante', type: 'fantasia', filter: 'rapido',
-            title: 'Cerveja Amanteigada', desc: 'Sabor mágico e cremoso.', tag: '10 min', yield: '2 pessoas',
-            img: 'https://images.unsplash.com/photo-1513558161293-cdaf7659ed97?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Cerveja de Raiz ou Soda', 'Xarope de Caramelo', 'Chantilly', 'Essência de Manteiga'],
-            method: ['Misture o refrigerante com o caramelo.', 'No topo, adicione o chantilly batido com essência de manteiga.', 'Sirva gelado.'],
-            movie: 'Harry Potter'
+            id: 'cine-matilda', section: 'filmes', level: 'intermediario', type: 'classicos', filter: 'replica',
+            title: 'Bolo da Matilda', desc: 'Aquele bolo de chocolate úmido e exagerado que Bruce Bogtrotter enfrentou.', tag: '45 min', yield: '10 pessoas',
+            img: 'assets/matilda_cake.png',
+            ingredients: ['2 xícaras de farinha', '1 xícara de açúcar', '1 xícara de chocolate em pó 50%', '3 ovos', '1 xícara de leite', '1/2 xícara de óleo', '1 colher de fermento'],
+            method: ['Bata os ovos com açúcar e óleo.', 'Adicione o leite e o chocolate, misturando bem.', 'Incorpore a farinha peneirada e por fim o fermento.', 'Asse a 180°C por 35 minutos.', 'Cubra com uma ganache de chocolate bem espessa e brilhante.']
         },
         {
-            id: 'cine-3', section: 'filmes', level: 'iniciante', type: 'series', filter: 'inspirada',
-            title: 'Waffle Eleven', desc: 'Com camadas de coberturas.', tag: '15 min', yield: '1 pessoa',
-            img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Waffles congelados ou frescos', 'Vários tipos de doces', 'Chantilly', 'Calda'],
-            method: ['Toste os waffles até ficarem crocantes.', 'Empilhe-os com chantilly entre as camadas.', 'Decore com o máximo de doces possível.'],
-            movie: 'Stranger Things'
+            id: 'cine-american-pie', section: 'filmes', level: 'iniciante', type: 'classicos', filter: 'replica',
+            title: 'Torta de Maçã American Pie', desc: 'A clássica torta americana, quentinha e com aroma de canela.', tag: '50 min', yield: '6 pessoas',
+            img: 'assets/apple_pie.png',
+            ingredients: ['Massa pronta para torta', '4 maçãs grandes fatiadas', '1/2 xícara de açúcar', 'Canela a gosto', 'Suco de 1 limão'],
+            method: ['Misture as maçãs fatiadas com açúcar, canela e limão.', 'Forre a forma com a massa e coloque o recheio.', 'Cubra com outra camada de massa (faça trançado se preferir).', 'Asse a 180°C por cerca de 40 minutos até dourar.']
         },
         {
-            id: 'cine-4', section: 'filmes', level: 'intermediario', type: 'classicos', filter: 'replica',
-            title: 'Milkshake de 5 Dólares', desc: 'O clássico do Jack Rabbit Slims.', tag: '10 min', yield: '1 pessoa',
-            img: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Sorvete de Baunilha Premium', 'Leite Integral', 'Chantilly Real', 'Cereja Marrasquino'],
-            method: ['Bata o sorvete com o leite até ficar denso.', 'Sirva em copo alto.', 'Finalize com muito chantilly e a cereja no topo.'],
-            movie: 'Pulp Fiction'
+            id: 'cine-chef', section: 'filmes', level: 'iniciante', type: 'classicos', filter: 'replica',
+            title: 'Sanduíche Cubano (Chef)', desc: 'O sanduíche que deu vida ao food truck de El Jefe.', tag: '20 min', yield: '2 pessoas',
+            img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=60',
+            ingredients: ['Pão ciabatta ou francês', 'Carne de porco assada e desfiada', 'Fatias de presunto', 'Queijo suíço', 'Picles de pepino', 'Mostarda amarela'],
+            method: ['Abra o pão e espalhe mostarda generosamente.', 'Monte as camadas: porco, presunto, queijo e picles.', 'Pressione o sanduíche em uma chapa quente com manteiga.', 'Grelhe até o pão ficar bem crocante e o queijo derretido.']
         },
         {
-            id: 'cine-5', section: 'filmes', level: 'avancado', type: 'series', filter: 'replica',
-            title: 'Spaghetti Godfather', desc: 'A receita de Clemenza.', tag: '120 min', yield: '6 pessoas',
-            img: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Polpette (Almôndegas)', 'Linguiça Italiana', 'Tomates Pelados', 'Vinho tinto', 'Açúcar (segredo)'],
-            method: ['Sele as carnes.', 'Ferva o molho por horas.', 'Adicione o açúcar e o vinho para equilibrar a acidez.', 'Sirva com spaghetti al dente.'],
-            movie: 'The Godfather'
+            id: 'cine-dama-vagabundo', section: 'filmes', level: 'iniciante', type: 'animacoes', filter: 'replica',
+            title: 'Spaghetti com Almôndegas', desc: 'Para um jantar romântico como o de A Dama e o Vagabundo.', tag: '40 min', yield: '2 pessoas',
+            img: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=60',
+            ingredients: ['Espaguete número 5', 'Molho de tomate pelado', 'Almôndegas: Carne moída, alho, sal e 1 ovo', 'Manjericão fresco'],
+            method: ['Prepare as almôndegas temperando a carne e modelando pequenas bolas.', 'Frite as almôndegas e reserve.', 'Cozinhe o espaguete em água fervente salgada.', 'Aqueça o molho, adicione as almôndegas e misture a massa delicadamente.']
         },
         {
-            id: 'cine-6', section: 'filmes', level: 'intermediario', type: 'fantasia', filter: 'inspirada',
-            title: 'Pão de Lembas', desc: 'Energia para o dia todo.', tag: '40 min', yield: '12 fatias',
-            img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-            ingredients: ['Mel', 'Nozes picadas', 'Laranja', 'Farinha Integral'],
-            method: ['Misture os ingredientes até formar uma massa densa.', 'Modele em quadrados e decore com uma folha.', 'Asse até firmar.'],
-            movie: 'Lord of the Rings'
+            id: 'cine-harry-potter', section: 'filmes', level: 'intermediario', type: 'fantasia', filter: 'inspirada',
+            title: 'Café Inglês (Harry Potter)', desc: 'Um banquete digno do Salão Principal de Hogwarts.', tag: '30 min', yield: '2 pessoas',
+            img: 'https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=800&q=60',
+            ingredients: ['Ovos', 'Bacon em fatias', 'Salsichas tipo inglesa', 'Feijão em molho de tomate (baked beans)', 'Pão de forma para torradas'],
+            method: ['Frite o bacon até ficar crocante e as salsichas até dourarem.', 'Prepare os ovos (podem ser mexidos ou fritos com gema mole).', 'Aqueça o feijão em uma panela pequena.', 'Sirva tudo em um prato grande acompanhado de torradas bem quentes.']
+        },
+        {
+            id: 'cine-historias-cruzadas', section: 'filmes', level: 'avancado', type: 'classicos', filter: 'replica',
+            title: 'Frango Frito do Sul', desc: 'O segredo da Minnie para o melhor frango frito do Mississipi.', tag: '60 min', yield: '4 pessoas',
+            img: 'https://images.unsplash.com/photo-1569058242253-92a9c71f9867?auto=format&fit=crop&w=800&q=60',
+            ingredients: ['Coxas e sobrecoxas de frango', 'Farinha de trigo', 'Páprica, pimenta e sal', 'Leite ou Buttermilk para marinar'],
+            method: ['Deixe o frango marinar no leite com temperos por pelo menos 1 hora.', 'Passe os pedaços de frango na farinha bem temperada.', 'Frite em óleo quente (ou gordura vegetal) até ficar dourado e crocante.', 'Escorra em papel toalha e sirva quente.']
+        },
+        {
+            id: 'cine-julie-julia', section: 'filmes', level: 'iniciante', type: 'classicos', filter: 'replica',
+            title: 'Omelete de Julie & Julia', desc: 'A simplicidade francesa dominada pela técnica.', tag: '10 min', yield: '1 pessoa',
+            img: 'https://images.unsplash.com/photo-1510629954389-c1e0da47d414?auto=format&fit=crop&w=800&q=60',
+            ingredients: ['3 ovos frescos', '1 colher de manteiga sem sal', '1 pitada de sal', 'Ervas finas (opcional)'],
+            method: ['Bata os ovos levemente com sal.', 'Derreta a manteiga em uma frigideira antiaderente em fogo médio.', 'Despeje os ovos e mexa rapidamente com um garfo no centro.', 'Dobre a omelete antes que endureça totalmente; ela deve ficar cremosa por dentro.']
         }
     ];
 
@@ -414,6 +379,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const hubPanes = document.querySelectorAll('.hub-pane');
         const dropdownItems = document.querySelectorAll('.dropdown-item');
         const heroExploreBtn = document.getElementById('heroExploreBtn');
+        const homeSection = document.getElementById('home');
+        const aboutSection = document.getElementById('sobre');
+        const navLinks = document.querySelectorAll('.nav-link');
 
         const bgMap = {
             receitas: 'hub-bg-receitas',
@@ -422,6 +390,10 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         function switchUniverse(target) {
+            // Ocultar Home e Sobre
+            if (homeSection) homeSection.style.display = 'none';
+            if (aboutSection) aboutSection.style.display = 'none';
+
             // Revelar seções caso estejam ocultas
             hubSection.style.display = 'block';
             tipsSection.style.display = 'block';
@@ -457,6 +429,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 switchUniverse('receitas'); // Abre salgados por padrão
             });
         }
+
+        // Eventos para os links de navegação principais (Home e Dicas)
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                
+                if (href === '#home' || href === '#sobre') {
+                    // Mostrar Home/Sobre e ocultar o resto
+                    if (homeSection) homeSection.style.display = 'block';
+                    if (aboutSection) aboutSection.style.display = 'block';
+                    hubSection.style.display = 'none';
+                    tipsSection.style.display = 'none';
+                } else if (href === '#receitas-hub' || href === '#dicas') {
+                    // Se clicar em Dicas diretamente, também ocultamos a home/sobre
+                    if (homeSection) homeSection.style.display = 'none';
+                    if (aboutSection) aboutSection.style.display = 'none';
+                    hubSection.style.display = 'block';
+                    tipsSection.style.display = 'block';
+                }
+            });
+        });
     }
 
     // Inicializar Hub Master
