@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurevenus | Gastronomia & Ateliê</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Courgette&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+    <header class="navbar">
+        <div class="container nav-wrapper">
+            <div class="logo" id="homeLogo">
+                <div class="jv-logo-container">
+                    <span class="bee-mini">🐝</span>
+                    <span class="jv-main">JV</span>
+                </div>
+                <div class="brand-name">
+                    <span class="ju">Ju</span><span class="revenus">revenus</span>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <button id="btnProfile" class="user-profile-top" title="Meu Perfil">
+                    <i class="fas fa-user-circle"></i> <span id="userNameTop">Usuário</span>
+                </button>
+                <button id="themeToggle" class="btn-theme" title="Alternar Tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU DE ABAS PRINCIPAL (HORIZONTAL) -->
+    <nav class="master-tabs-nav">
+        <div class="container">
+            <div class="tabs-scroll-wrapper">
+                <button class="master-tab-btn active" data-target="home-section">Página Inicial</button>
+                <button class="master-tab-btn" data-target="gastronomico-section">Gastronômico</button>
+                <button class="master-tab-btn" data-target="atelie-section">Ateliê</button>
+                <button class="master-tab-btn" data-target="cine-section">Cine Gourmet</button>
+                <button class="master-tab-btn" data-target="kitchen-section">🍳 Minha Cozinha</button>
+                <button class="master-tab-btn" data-target="community-section">👥 Comunidade</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- SEÇÃO HOME (Oculta ao selecionar outras categorias) -->
+        <div id="home-section" class="tab-content active">
+            <!-- CABEÇALHO HERO -->
+            <section class="hero" id="hero-section">
+                <!-- Contêiner de Partículas (Farinha) -->
+                <div id="particles-js" class="particles-container"></div>
+                <!-- Ícones flutuantes (Background) -->
+                <i class="fas fa-utensil-spoon floating-icon icon-1"></i>
+                <i class="fas fa-leaf floating-icon icon-2"></i>
+                <i class="fas fa-lemon floating-icon icon-3"></i>
+                
+                <div class="container hero-split">
+                    <div class="hero-content">
+                        <span class="hero-tag"><i class="fas fa-star"></i> Experiência Premium</span>
+                        <h1>Cozinhando com <span id="dynamic-word" class="word-highlight">Arte</span> & Doçura.</h1>
+                        <p>Descubra receitas exclusivas, técnicas de chefs e segredos cinematográficos em um só lugar. Eleve sua cozinha a um novo patamar.</p>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-hero" onclick="showCategory('gastronomico-section')">Explorar Pratos <i class="fas fa-arrow-right"></i></button>
+                            <button class="btn btn-outline btn-hero" onclick="showCategory('atelie-section')">Doces & Sobremesas</button>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="hero-animation-container">
+                            <div class="mixing-bowl">
+                                <div class="dough-mix"></div>
+                                <div class="fouet">
+                                    <div class="fouet-handle"></div>
+                                    <div class="fouet-wires"></div>
+                                </div>
+                            </div>
+                            <div class="hero-badge">
+                                <i class="fas fa-heart" style="color: var(--primary);"></i> <span>Acesso Total</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DESCRIÇÃO COMPACTA -->
+            <section class="description-section">
+                <div class="container">
+                    <div class="desc-grid">
+                        <div class="about-collage">
+                            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80" alt="Cozinha Artística" class="about-main-img">
+                            <img src="https://images.unsplash.com/photo-1466633364583-b1c739a2b216?auto=format&fit=crop&w=400&q=80" alt="Ingredientes" class="about-sub-img">
+                        </div>
+                        <div class="desc-text">
+                            <span class="handwritten-tag">Nossa Essência</span>
+                            <h3>Criando Memórias <span>Através do Sabor</span></h3>
+                            <p>A Jurevenus nasceu do desejo de transformar o ato de cozinhar em uma performance artística. Não entregamos apenas receitas; entregamos o roteiro para momentos inesquecíveis à mesa.</p>
+                            <p>Do brilho das telas de cinema ao calor do fogão à lenha, nossa curadoria é feita para quem vê a gastronomia como uma forma de amor.</p>
+                            <button class="btn btn-primary" onclick="showCategory('gastronomico-section')">Explorar Ateliê</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SEÇÕES DE CATEGORIAS (Escondidas inicialmente) -->
+        <div id="gastronomico-section" class="tab-content category-page">
+            <header class="category-header container">
+                <h2>Cozinha <span>Gastronômica</span></h2>
+                <div class="level-tabs" data-category="gastronomico">
+                    <button class="level-tab active" data-level="iniciante">Iniciante</button>
+                    <button class="level-tab" data-level="intermediario">Intermediário</button>
+                    <button class="level-tab" data-level="avancado">Avançado</button>
+                </div>
+            </header>
+            <div class="filters-bar container">
+                <div class="type-filters" id="types-gastronomico">
+                    <!-- Dinâmico -->
+                </div>
+                <div class="refine-area">
+                    <button class="btn-refine"><i class="fas fa-sliders"></i> Refinar</button>
+                    <div class="refine-panel">
+                        <!-- Painel de filtros profundos -->
+                    </div>
+                </div>
+            </div>
+            <div class="recipe-display container">
+                <div class="recipe-grid dense-grid" id="grid-gastronomico"></div>
+            </div>
+        </div>
+
+        <div id="atelie-section" class="tab-content category-page">
+            <header class="category-header container">
+                <h2>O <span>Ateliê</span> de Doces</h2>
+                <div class="level-tabs" data-category="atelie">
+                    <button class="level-tab active" data-level="iniciante">Iniciante</button>
+                    <button class="level-tab" data-level="intermediario">Intermediário</button>
+                    <button class="level-tab" data-level="avancado">Avançado</button>
+                </div>
+            </header>
+            <div class="filters-bar container">
+                <div class="type-filters" id="types-atelie"></div>
+                <div class="refine-area">
+                    <button class="btn-refine"><i class="fas fa-sliders"></i> Refinar</button>
+                </div>
+            </div>
+            <div class="recipe-display container">
+                <div class="recipe-grid dense-grid" id="grid-atelie"></div>
+            </div>
+        </div>
+
+        <div id="cine-section" class="tab-content category-page">
+            <header class="category-header container">
+                <h2>Universo <span>Cine Gourmet</span></h2>
+                <div class="level-tabs" data-category="cine">
+                    <button class="level-tab active" data-level="iniciante">Iniciante</button>
+                    <button class="level-tab" data-level="intermediario">Intermediário</button>
+                    <button class="level-tab" data-level="avancado">Avançado</button>
+                </div>
+            </header>
+            <div class="filters-bar container">
+                <div class="type-filters" id="types-cine"></div>
+                <div class="refine-area">
+                    <button class="btn-refine"><i class="fas fa-sliders"></i> Refinar</button>
+                </div>
+            </div>
+            <div class="recipe-display container">
+                <div class="recipe-grid dense-grid" id="grid-cine"></div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO MINHA COZINHA -->
+        <div id="kitchen-section" class="tab-content category-page">
+            <header class="category-header container">
+                <h2>Minha <span>Cozinha</span> 🍳</h2>
+                <p>O seu espaço criativo de experimentação.</p>
+            </header>
+            
+            <div class="container kitchen-grid">
+                <!-- Card Favoritos -->
+                <div class="kitchen-card">
+                    <h3>❤️ Meus Favoritos</h3>
+                    <p>Suas receitas salvas para fácil acesso.</p>
+                    <button class="btn btn-outline" onclick="showFavoritesInKitchen()" style="margin-top: 15px; width: 100%;">Ver Todos os Favoritos</button>
+                </div>
+
+                <!-- Card Sugestão -->
+                <div class="kitchen-card">
+                    <h3>🔍 Sugestão por Ingredientes</h3>
+                    <p>Diga o que tem e nós sugerimos a receita.</p>
+                    <div class="suggester-input-group">
+                        <input type="text" id="kitchenIngInput" placeholder="Ex: tomate, queijo...">
+                        <button class="btn btn-primary" id="btnKitchenSuggest">Buscar</button>
+                    </div>
+                </div>
+
+                <!-- Card Improviso -->
+                <div class="kitchen-card">
+                    <h3>✨ Modo Improviso</h3>
+                    <p>Combinações criativas e desafiadoras.</p>
+                    <button class="btn btn-outline" id="btnKitchenImprovise" style="width: 100%; border-radius: 50px;">Ativar Modo Improviso</button>
+                </div>
+            </div>
+
+            <div id="kitchenResults" class="container recipe-grid dense-grid" style="margin-top: 40px;"></div>
+        </div>
+
+        <!-- SEÇÃO FAVORITOS (Removida como aba principal, conteúdo será injetado em kitchenResults) -->
+
+        <!-- SEÇÃO COMUNIDADE -->
+        <div id="community-section" class="tab-content category-page">
+            <div class="container">
+                <div class="share-card">
+                    <div class="share-input-group">
+                        <textarea id="communityPostText" placeholder="O que você está cozinhando hoje?"></textarea>
+                        <div class="share-actions">
+                            <div style="display: flex; gap: 10px;">
+                                <div class="file-input-wrapper">
+                                    <button class="btn-icon" title="Adicionar Foto"><i class="fas fa-camera"></i></button>
+                                    <input type="file" id="communityPostPhoto" accept="image/*">
+                                </div>
+                                <button class="btn-icon" id="btnToggleRecipeForm" title="Publicar Receita"><i class="fas fa-utensils"></i></button>
+                            </div>
+                            <button class="btn btn-primary" id="btnSubmitPost">Postar</button>
+                        </div>
+                        
+                        <div id="recipePublishForm" class="recipe-publish-box">
+                            <h4>Publicar minha Receita 📝</h4>
+                            <input type="text" id="pubRecipeTitle" placeholder="Título da Receita">
+                            <textarea id="pubRecipeIngredients" placeholder="Ingredientes (um por linha)"></textarea>
+                            <textarea id="pubRecipeMethod" placeholder="Modo de Preparo (um por linha)"></textarea>
+                            <button class="btn btn-outline" id="btnConfirmPublish" style="width: 100%; margin-top: 10px;">Publicar no Feed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container community-feed" id="communityFeed">
+                <!-- Posts da comunidade injetados aqui -->
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL DE DETALHES DA RECEITA -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content-full">
+            <button class="btn-close-modal">&times;</button>
+            <div class="modal-body-grid">
+                <div class="modal-image-area">
+                    <img id="modal-img" src="" alt="">
+                    <div id="modal-movie-tag" class="movie-tag" style="display: none;">🍿 Filme</div>
+                </div>
+                <div class="modal-info-area">
+                    <div class="modal-meta-top">
+                        <span id="modal-category" class="cat-badge">Tipo</span>
+                        <span id="modal-level" class="level-badge">Nível</span>
+                    </div>
+                    <h2 id="modal-title">Título da Receita</h2>
+                    <div class="modal-specs">
+                        <span><i class="far fa-clock"></i> <b id="modal-time">30 min</b></span>
+                        <span><i class="fas fa-coins"></i> <b id="modal-cost">Baixo</b></span>
+                        <div class="portion-control">
+                            <button id="btnLessPortion">-</button>
+                            <span><i class="fas fa-users"></i> <b id="modal-servings">2</b> porções</span>
+                            <button id="btnMorePortion">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-tabs-inner">
+                        <button class="inner-tab-btn active" data-tab="ingredients">Ingredientes</button>
+                        <button class="inner-tab-btn" data-tab="method">Preparo</button>
+                        <button class="inner-tab-btn" data-tab="details">Mais Detalhes</button>
+                        <button class="inner-tab-btn" data-tab="community">Comentários</button>
+                    </div>
+
+                    <div id="tab-ingredients" class="inner-tab-content active">
+                        <ul id="modal-ingredients-list" class="styled-list"></ul>
+                    </div>
+
+                    <div id="tab-method" class="inner-tab-content">
+                        <ol id="modal-method-list" class="numbered-list"></ol>
+                    </div>
+
+                    <div id="tab-details" class="inner-tab-content">
+                        <p id="modal-extra-info"></p>
+                    </div>
+
+                    <div id="tab-community" class="inner-tab-content">
+                        <div class="comment-input-box">
+                            <textarea id="commentText" placeholder="Compartilhe seu resultado ou dica..."></textarea>
+                            <button class="btn btn-primary" id="btnPostComment">Postar</button>
+                        </div>
+                        <div id="modal-comments-list" class="comments-list"></div>
+                    </div>
+
+                    <div class="modal-footer-actions" style="margin-top: 30px;">
+                        <button class="btn btn-primary" id="btnStartAssistant">
+                            <i class="fas fa-play-circle"></i> Iniciar Assistente
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY DO ASSISTENTE INTERATIVO -->
+    <div id="assistantOverlay" class="assistant-overlay">
+        <div class="assistant-card">
+            <button class="close-overlay" id="closeAssistant">&times;</button>
+            <div class="assistant-character">
+                <div class="chef-bee">🐝</div>
+                <div class="speech-bubble">Olá! Eu sou a <b>Chef Jure</b>. Vamos cozinhar?</div>
+            </div>
+            <div id="assistantStepContent">
+                <div class="step-number">Passo 1</div>
+                <div class="step-text">Descrição do passo aparecerá aqui.</div>
+            </div>
+            <div id="timerContainer" class="timer-display-premium">
+                <i class="fas fa-hourglass-half"></i>
+                <div id="timerBox" class="timer-box">00:00</div>
+            </div>
+            <div class="assistant-controls">
+                <button class="btn btn-outline" id="btnPrevStep"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="btn btn-outline" id="btnVoice"><i class="fas fa-volume-up"></i> Ouvir</button>
+                <button class="btn btn-primary" id="btnNextStep">Próximo <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE PERFIL / LOGIN / PREFERÊNCIAS -->
+    <div id="profile-modal" class="modal">
+        <div class="modal-content-full" style="max-width: 500px;">
+            <button class="btn-close-modal" id="closeProfile">&times;</button>
+            
+            <div class="modal-tabs-inner" style="margin-top: 20px; padding: 0 40px;">
+                <button class="inner-tab-btn active" data-tab="login">Login</button>
+                <button class="inner-tab-btn" data-tab="preferences">Preferências</button>
+            </div>
+
+            <div id="tab-login" class="inner-tab-content active" style="padding: 40px;">
+                <h2>Acesse sua <span>Cozinha</span></h2>
+                <p>Entre para sincronizar suas receitas.</p>
+                <form id="loginForm" style="margin-top: 20px;">
+                    <div class="refine-group">
+                        <h4>E-mail</h4>
+                        <input type="email" id="loginEmail" placeholder="seu@email.com" required style="width: 100%; padding: 12px; border-radius: 50px; border: 1px solid var(--bg-secondary); margin-bottom: 15px;">
+                    </div>
+                    <div class="refine-group">
+                        <h4>Senha</h4>
+                        <input type="password" id="loginPass" placeholder="Sua senha..." required style="width: 100%; padding: 12px; border-radius: 50px; border: 1px solid var(--bg-secondary); margin-bottom: 20px;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Entrar na Jurevenus</button>
+                </form>
+            </div>
+
+            <div id="tab-preferences" class="inner-tab-content" style="padding: 40px;">
+                <h2>Minhas <span>Preferências</span></h2>
+                <p>Personalize para receber sugestões ideais.</p>
+                <div class="refine-group">
+                    <h4>Nome de Exibição</h4>
+                    <input type="text" id="editUserName" placeholder="Seu nome..." style="width: 100%; padding: 10px; border-radius: 50px; border: 1px solid var(--bg-secondary); margin-bottom: 15px;">
+                </div>
+                <div class="refine-group">
+                    <h4>Nível de Habilidade</h4>
+                    <div class="refine-options" id="pref-level">
+                        <button class="refine-opt" data-val="iniciante">Iniciante</button>
+                        <button class="refine-opt" data-val="intermediario">Intermediário</button>
+                        <button class="refine-opt" data-val="avancado">Avançado</button>
+                    </div>
+                </div>
+                <div class="refine-group">
+                    <h4>Restrições / Dietas</h4>
+                    <div class="refine-options" id="pref-restrictions">
+                        <button class="refine-opt" data-val="Vegetariano">Vegetariano</button>
+                        <button class="refine-opt" data-val="Sem Glúten">Sem Glúten</button>
+                        <button class="refine-opt" data-val="Vegano">Vegano</button>
+                        <button class="refine-opt" data-val="Low Carb">Low Carb</button>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="savePreferences" style="width: 100%;">Salvar Perfil</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer class="main-footer" style="padding: 30px 0; border-top: 2px solid var(--accent); margin-top: 50px;">
+        <div class="container" style="text-align: center;">
+            <p style="font-family: var(--font-hand); font-size: 1.4rem; color: var(--primary);">Jurevenus 🌼🐝</p>
+        </div>
+    </footer>
+
+    <!-- PAINEL DE REFINAMENTO (REUSÁVEL) -->
+    <div id="refine-overlay" class="refine-overlay">
+        <div class="refine-panel">
+            <div class="refine-header">
+                <h3>Refinar Busca</h3>
+                <button id="close-refine">&times;</button>
+            </div>
+            <div class="refine-body">
+                <!-- Injetado via JS dinamicamente para cada categoria -->
+            </div>
+            <div class="refine-footer">
+                <button class="btn btn-primary" id="apply-filters">Aplicar Filtros</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
